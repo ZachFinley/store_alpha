@@ -1,12 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/ShoppingPage.css';
 import React from 'react';
-import NavbarComponent from '../hooks/Navbar';
-//shopping page
+//shopping cart page
 function ShoppingPage() {
   return (
     <div className="ShoppingPage">
-      <NavbarComponent />
       <header className="ShoppingPage-header">
         
         <p>ShoppingPage</p>
