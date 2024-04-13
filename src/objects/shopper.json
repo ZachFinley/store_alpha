@@ -1,0 +1,12 @@
+{
+    "customerID": "1",
+    "name": "John Doe",
+    "email": "johndoe@gmail.com",
+    "address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "state": "NY",
+        "zip": "12345"
+    },
+    "orderIDs": ["1"]
+}

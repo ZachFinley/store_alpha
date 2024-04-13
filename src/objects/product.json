@@ -1,0 +1,9 @@
+{
+    "id": 1,
+    "name": "Apple",
+    "price": 1.00,
+    "description": "Gala apple.",
+    "category": "Cold Food",
+    "perPound": "true",
+    "image": "../images/apple.jpg"
+}
