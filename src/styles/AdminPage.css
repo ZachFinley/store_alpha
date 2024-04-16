@@ -1,6 +1,29 @@
-.AdminPage {
-    
-}
-.AdminPage-header {
-
-}
+ .Left {
+    float: left;
+    height: 67%;
+    border: 1px solid black;
+    width: 50%;
+  }
+  
+  .Right {
+    float: right;
+    height: 67%;
+    border: 1px solid black;
+    width: 50%;
+  }
+  .Bottom {
+    float: bottom;
+    border: 1px solid black;
+  }
+  .AdminLeftPanel-header {
+    min-height: 67vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+  }
+  .AdminBottomPanel-header {
+    align-items: center;
+    justify-content: top;
+  }
+  

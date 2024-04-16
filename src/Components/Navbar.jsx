@@ -8,7 +8,7 @@ const NavbarComponent = () => {
         <Navbar bg="light" expand="lg" sticky="top">
             <Container>
                 <LinkContainer to="/">
-                    <Navbar.Brand>React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand>Grocery Store</Navbar.Brand>
                 </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

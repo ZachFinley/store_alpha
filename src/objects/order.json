@@ -1,14 +1,17 @@
-{
-    "customerID": "1",
-    "items": [
-        {
-            "name": "Apples",
-            "quantity": 5,
-            "returned": false
-        }   
-    ],
-    "total": 1.06,
-    "date": "2024-04-12T09:12:00Z",
-    "payment": "credit card",
-    "status": "completed"
-}
+[
+    {
+        "orderID": "1",
+        "customerID": "1",
+        "items": [
+            {
+                "name": "Apples",
+                "quantity": 5,
+                "returned": false
+            }   
+        ],
+        "total": 1.06,
+        "date": "2024-04-12T09:12:00Z",
+        "payment": "credit card",
+        "status": "completed"
+    }
+]
