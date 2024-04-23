@@ -1,23 +1,25 @@
 import React from 'react';
+import '../styles/AdminPage.css';
 import ProductPanel from '../Components/ProductPanel';
 import CustomerPanel from '../Components/CustomerPanel';
 import OrderPanel from '../Components/OrderPanel.jsx';
 
 const AdminPage = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-      <div style={{ display: 'flex', flex: 1 }}>
-        <div style={{ flex: 1, padding: '10px', borderRight: '1px solid #ccc' }}>
+    <div class="admin">
+      <div class="panels">
+        <div class="colPanels">
           <ProductPanel />
         </div>
-        <div style={{ flex: 1, padding: '10px', borderRight: '1px solid #ccc' }}>
+        <div class="colPanels">
           <CustomerPanel />
         </div>
       </div>
-      <div style={{ flex: 1, padding: '10px' }}>
+      <div class="bottomPanel">
         <OrderPanel />
       </div>
     </div>
+
   );
 };
 

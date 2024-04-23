@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import '../styles/CustomerPanel.css';
 const CustomerPanel = () => {
   const [customer, setCustomer] = useState({
     name: '',

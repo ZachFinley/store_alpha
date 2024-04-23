@@ -1,29 +1,23 @@
- .Left {
-    float: left;
-    height: 67%;
-    border: 1px solid black;
-    width: 50%;
-  }
-  
-  .Right {
-    float: right;
-    height: 67%;
-    border: 1px solid black;
-    width: 50%;
-  }
-  .Bottom {
-    float: bottom;
-    border: 1px solid black;
-  }
-  .AdminLeftPanel-header {
-    min-height: 67vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: top;
-  }
-  .AdminBottomPanel-header {
-    align-items: center;
-    justify-content: top;
-  }
-  
+.admin {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.panels {
+  display: flex;
+  flex: 1;
+}
+
+.colPanels {
+  flex: 1;
+  padding: 10px;
+  border-right: 1px solid black;
+}
+
+.bottomPanel {
+  flex: 1;
+  padding: 10px;
+  border-top: 1px solid black;
+}
+
