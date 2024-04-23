@@ -1,26 +1,27 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import AdminRightPanel from '../Components/AdminRightPanel';
-import AdminLeftPanel from '../Components/AdminLeftPanel';
-import AdminBottomPanel from '../Components/AdminBottomPanel';
 import React from 'react';
+import ProductPanel from '../Components/ProductPanel';
+import CustomerPanel from '../Components/CustomerPanel';
+import OrderPanel from '../Components/OrderPanel.jsx';
 
-function AdminPage() {
+const AdminPage = () => {
   return (
-    <div className="AdminPage">
-      <div>
-        <div className="Left">
-          <AdminLeftPanel />
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+      <div style={{ display: 'flex', flex: 1 }}>
+        <div style={{ flex: 1, padding: '10px', borderRight: '1px solid #ccc' }}>
+          <ProductPanel />
         </div>
-        <div className="Right">
-          <AdminRightPanel />
+        <div style={{ flex: 1, padding: '10px', borderRight: '1px solid #ccc' }}>
+          <CustomerPanel />
         </div>
       </div>
-      <div className="Bottom">
-        <AdminBottomPanel />
+      <div style={{ flex: 1, padding: '10px' }}>
+        <OrderPanel />
       </div>
     </div>
   );
-}
+};
 
 export default AdminPage;
+
+
 

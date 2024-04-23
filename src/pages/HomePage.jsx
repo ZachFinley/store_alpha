@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/HomePage.css';
 import React from 'react';
-import products from './product.json';
+import products from '../objects/product.json';
 //home page
 function HomePage() {
   const featuredProducts = products.filter(product => product.featured);

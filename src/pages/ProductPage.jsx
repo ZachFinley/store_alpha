@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/ProductPage.css';
 import React, { useState, useEffect } from 'react';
-import products from '../product.json';
+import products from '../objects/product.json';
 //product page
 function ProductPage() {
   const [products, setProducts] = useState([]);
