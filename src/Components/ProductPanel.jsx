@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/ProductPanel.css';
+import products from '../objects/product.json'; 
+
 const ProductPanel = () => {
+  const [selectedProductId, setSelectedProductId] = useState('');
   const [product, setProduct] = useState({
     name: '',
     price: '',
@@ -18,15 +21,48 @@ const ProductPanel = () => {
     }));
   };
 
+  const handleSelectProduct = (e) => {
+    const productId = e.target.value;
+    setSelectedProductId(productId);
+    const selectedProduct = products.find(p => p.id.toString() === productId);
+    if (selectedProduct) {
+      setProduct({
+        name: selectedProduct.name,
+        price: selectedProduct.price.toString(),
+        description: selectedProduct.description,
+        category: selectedProduct.category,
+        perPound: selectedProduct.perPound === "true", 
+        image: selectedProduct.image
+      });
+    }
+  };
+  const handleClearFields = () => {
+    setProduct({
+      name: '',
+      price: '',
+      description: '',
+      category: '',
+      perPound: '',
+      image: ''
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submitting product:', product);
-    
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h3>Edit Product</h3>
+      <select value={selectedProductId} onChange={handleSelectProduct}>
+        <option value="">Select a Product</option>
+        {products.map(product => (
+          <option key={product.id} value={product.id}>
+            {product.name}
+          </option>
+        ))}
+      </select>
+      <br />
       <label>
         Name:
         <input type="text" name="name" value={product.name} onChange={handleChange} />
@@ -58,6 +94,7 @@ const ProductPanel = () => {
       </label>
       <br />
       <button type="submit">Save Product</button>
+      <button type="button" onClick={handleClearFields}>Clear Fields</button>
     </form>
   );
 };

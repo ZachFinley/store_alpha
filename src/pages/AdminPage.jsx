@@ -6,16 +6,16 @@ import OrderPanel from '../Components/OrderPanel.jsx';
 
 const AdminPage = () => {
   return (
-    <div class="admin">
-      <div class="panels">
-        <div class="colPanels">
+    <div className="admin">
+      <div className="panels">
+        <div className="colPanels">
           <ProductPanel />
         </div>
-        <div class="colPanels">
+        <div className="colPanels">
           <CustomerPanel />
         </div>
       </div>
-      <div class="bottomPanel">
+      <div className="bottomPanel">
         <OrderPanel />
       </div>
     </div>

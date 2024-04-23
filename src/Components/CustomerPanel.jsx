@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/CustomerPanel.css';
+import shoppers from '../objects/shopper.json';
+
 const CustomerPanel = () => {
+  const [selectedShopperId, setSelectedShopperId] = useState('');
   const [customer, setCustomer] = useState({
     name: '',
     email: '',
@@ -18,15 +21,50 @@ const CustomerPanel = () => {
     }));
   };
 
+  const handleSelectShopper = (e) => {
+    const shopperId = e.target.value;
+    setSelectedShopperId(shopperId);
+    const shopper = shoppers.find(shopper => shopper.customerID === shopperId);
+    if (shopper) {
+      setCustomer({
+        name: shopper.name,
+        email: shopper.email,
+        street: shopper.address.street,
+        city: shopper.address.city,
+        state: shopper.address.state,
+        zip: shopper.address.zip
+      });
+    }
+  };
+
+  const handleClearFields = () => {
+    setCustomer({
+      name: '',
+      email: '',
+      street: '',
+      city: '',
+      state: '',
+      zip: ''
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submitting customer:', customer);
-    
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h3>Edit Customer</h3>
+      <select value={selectedShopperId} onChange={handleSelectShopper}>
+        <option value="">Select a Shopper</option>
+        {shoppers.map(shopper => (
+          <option key={shopper.customerID} value={shopper.customerID}>
+            {shopper.name}
+          </option>
+        ))}
+      </select>
+      <br />
       <label>
         Name:
         <input type="text" name="name" value={customer.name} onChange={handleChange} />
@@ -58,6 +96,7 @@ const CustomerPanel = () => {
       </label>
       <br />
       <button type="submit">Save Customer</button>
+      <button type="button" onClick={handleClearFields}>Clear Fields</button>
     </form>
   );
 };
