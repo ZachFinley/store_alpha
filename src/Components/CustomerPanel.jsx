@@ -21,7 +21,7 @@ const CustomerPanel = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submitting customer:', customer);
-    // Here you would typically make an API call
+    
   };
 
   return (

@@ -21,7 +21,7 @@ const ProductPanel = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submitting product:', product);
-    // Here you would typically make an API call
+    
   };
 
   return (
