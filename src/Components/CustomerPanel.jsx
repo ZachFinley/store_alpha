@@ -64,35 +64,17 @@ const CustomerPanel = ({shoppers, onCustomerUpdate}) => {
         ))}
       </select>
       <br />
-      <label>
-        Name:
-        <input type="text" name="name" value={customer.name} onChange={handleChange} required/>
-      </label>
+      <label>Name:<input type="text" name="name" value={customer.name} onChange={handleChange} required/></label>
       <br />
-      <label>
-        Email:
-        <input type="email" name="email" value={customer.email} onChange={handleChange} required/>
-      </label>
+      <label>Email:<input type="email" name="email" value={customer.email} onChange={handleChange} required/></label>
       <br />
-      <label>
-        Street:
-        <input type="text" name="street" value={customer.street} onChange={handleChange} required/>
-      </label>
+      <label>Street:<input type="text" name="street" value={customer.street} onChange={handleChange} required/> </label>
       <br />
-      <label>
-        City:
-        <input type="text" name="city" value={customer.city} onChange={handleChange} required/>
-      </label>
+      <label>City:<input type="text" name="city" value={customer.city} onChange={handleChange} required/></label>
       <br />
-      <label>
-        State:
-        <input type="text" name="state" value={customer.state} onChange={handleChange} required/>
-      </label>
+      <label>State:<input type="text" name="state" value={customer.state} onChange={handleChange} required/></label>
       <br />
-      <label>
-        Zip:
-        <input type="text" name="zip" value={customer.zip} onChange={handleChange} required/>
-      </label>
+      <label>Zip:<input type="text" name="zip" value={customer.zip} onChange={handleChange} required/></label>
       <br />
       <button type="submit">Save Customer</button>
       <button type="button" onClick={handleClearFields}>Clear Fields</button>

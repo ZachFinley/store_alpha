@@ -62,35 +62,17 @@ const ProductPanel = ({products, onProductUpdate}) => {
         ))}
       </select>
       <br />
-      <label>
-        Name:
-        <input type="text" name="name" value={product.name} onChange={handleChange} required/>
-      </label>
+      <label>Name:<input type="text" name="name" value={product.name} onChange={handleChange} required/></label>
       <br />
-      <label>
-        Price:
-        <input type="number" name="price" value={product.price} onChange={handleChange} required/>
-      </label>
+      <label>Price:<input type="number" name="price" value={product.price} onChange={handleChange} required/></label>
       <br />
-      <label>
-        Description:
-        <input type="text" name="description" value={product.description} onChange={handleChange} required/>
-      </label>
+      <label>Description:<input type="text" name="description" value={product.description} onChange={handleChange} required/></label>
       <br />
-      <label>
-        Category:
-        <input type="text" name="category" value={product.category} onChange={handleChange} required/>
-      </label>
+      <label>Category:<input type="text" name="category" value={product.category} onChange={handleChange} required/></label>
       <br />
-      <label>
-        Per Pound:
-        <input type="checkbox" name="perPound" checked={product.perPound} onChange={handleChange}/>
-      </label>
+      <label>Per Pound:<input type="checkbox" name="perPound" checked={product.perPound} onChange={handleChange}/></label>
       <br />
-      <label>
-        Image URL:
-        <input type="text" name="image" value={product.image} onChange={handleChange} required/>
-      </label>
+      <label>Image URL:<input type="text" name="image" value={product.image} onChange={handleChange} required/></label>
       <br />
       <button type="submit">Save Product</button>
       <button type="button" onClick={handleClearFields}>Clear Fields</button>
