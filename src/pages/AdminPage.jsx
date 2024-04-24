@@ -4,19 +4,19 @@ import ProductPanel from '../Components/ProductPanel';
 import CustomerPanel from '../Components/CustomerPanel';
 import OrderPanel from '../Components/OrderPanel.jsx';
 
-const AdminPage = () => {
+function AdminPage({ shoppers, orders, products, onProductUpdate, onCustomerUpdate }){
   return (
     <div className="admin">
       <div className="panels">
         <div className="colPanels">
-          <ProductPanel />
+          <ProductPanel products={products} onProductUpdate={onProductUpdate}/>
         </div>
         <div className="colPanels">
-          <CustomerPanel />
+          <CustomerPanel shoppers={shoppers} onCustomerUpdate={onCustomerUpdate}/>
         </div>
       </div>
       <div className="bottomPanel">
-        <OrderPanel />
+        <OrderPanel orders={orders}/>
       </div>
     </div>
 

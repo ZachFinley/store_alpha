@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/ProductPanel.css';
-import products from '../objects/product.json'; 
 
-const ProductPanel = () => {
+const ProductPanel = ({products, onProductUpdate}) => {
   const [selectedProductId, setSelectedProductId] = useState('');
   const [product, setProduct] = useState({
     name: '',
@@ -65,32 +64,32 @@ const ProductPanel = () => {
       <br />
       <label>
         Name:
-        <input type="text" name="name" value={product.name} onChange={handleChange} />
+        <input type="text" name="name" value={product.name} onChange={handleChange} required/>
       </label>
       <br />
       <label>
         Price:
-        <input type="number" name="price" value={product.price} onChange={handleChange} />
+        <input type="number" name="price" value={product.price} onChange={handleChange} required/>
       </label>
       <br />
       <label>
         Description:
-        <input type="text" name="description" value={product.description} onChange={handleChange} />
+        <input type="text" name="description" value={product.description} onChange={handleChange} required/>
       </label>
       <br />
       <label>
         Category:
-        <input type="text" name="category" value={product.category} onChange={handleChange} />
+        <input type="text" name="category" value={product.category} onChange={handleChange} required/>
       </label>
       <br />
       <label>
         Per Pound:
-        <input type="checkbox" name="perPound" checked={product.perPound} onChange={handleChange} />
+        <input type="checkbox" name="perPound" checked={product.perPound} onChange={handleChange}/>
       </label>
       <br />
       <label>
         Image URL:
-        <input type="text" name="image" value={product.image} onChange={handleChange} />
+        <input type="text" name="image" value={product.image} onChange={handleChange} required/>
       </label>
       <br />
       <button type="submit">Save Product</button>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/CustomerPanel.css';
-import shoppers from '../objects/shopper.json';
 
-const CustomerPanel = () => {
+const CustomerPanel = ({shoppers, onCustomerUpdate}) => {
   const [selectedShopperId, setSelectedShopperId] = useState('');
   const [customer, setCustomer] = useState({
     name: '',
@@ -67,32 +66,32 @@ const CustomerPanel = () => {
       <br />
       <label>
         Name:
-        <input type="text" name="name" value={customer.name} onChange={handleChange} />
+        <input type="text" name="name" value={customer.name} onChange={handleChange} required/>
       </label>
       <br />
       <label>
         Email:
-        <input type="email" name="email" value={customer.email} onChange={handleChange} />
+        <input type="email" name="email" value={customer.email} onChange={handleChange} required/>
       </label>
       <br />
       <label>
         Street:
-        <input type="text" name="street" value={customer.street} onChange={handleChange} />
+        <input type="text" name="street" value={customer.street} onChange={handleChange} required/>
       </label>
       <br />
       <label>
         City:
-        <input type="text" name="city" value={customer.city} onChange={handleChange} />
+        <input type="text" name="city" value={customer.city} onChange={handleChange} required/>
       </label>
       <br />
       <label>
         State:
-        <input type="text" name="state" value={customer.state} onChange={handleChange} />
+        <input type="text" name="state" value={customer.state} onChange={handleChange} required/>
       </label>
       <br />
       <label>
         Zip:
-        <input type="text" name="zip" value={customer.zip} onChange={handleChange} />
+        <input type="text" name="zip" value={customer.zip} onChange={handleChange} required/>
       </label>
       <br />
       <button type="submit">Save Customer</button>

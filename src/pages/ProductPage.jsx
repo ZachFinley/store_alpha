@@ -1,19 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/ProductPage.css';
-import React, { useState, useEffect } from 'react';
-import products from '../objects/product.json';
+import React, { useState } from 'react';
 //product page
-function ProductPage() {
-  const [products, setProducts] = useState([]);
+function ProductPage({ products }) {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   const handleAddToCart = (product) => {
     // add product to cart
   };
-  useEffect(() => {
-    setProducts(products);
-    setFilteredProducts(products);
-  }, []);
+  
 
   const handleSearch = searchTerm => {
     const filtered = [];

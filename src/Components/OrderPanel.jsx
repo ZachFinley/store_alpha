@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import ordersList from '../objects/order.json';
 import shoppers from '../objects/shopper.json';
 
-const OrderPanel = () => {
+const OrderPanel = ({orders}) => {
   const [selectedCustomerId, setSelectedCustomerId] = useState('');
 
   const handleCustomerSelection = (e) => {
@@ -35,7 +34,7 @@ const OrderPanel = () => {
         </thead>
         <tbody>
           {selectedCustomer.orderIDs.map(orderId => {
-            const order = ordersList.find(order => order.orderID === orderId);
+            const order = orders.find(order => order.orderID === orderId);
             return order ? (
               <tr key={order.orderID}>
                 <td>{order.orderID}</td>
