@@ -9,7 +9,7 @@ function HomePage() {
       imageUrl: 'https://th.bing.com/th/id/R.72ff798ea0192ec8e470be79aef6b3c1?rik=gsM50%2fZdU4g%2fsg&riu=http%3a%2f%2fmedia.timeout.com%2fimages%2f102837656%2fimage.jpg&ehk=RT%2fYnzmaS4UDrY6Xtf%2fmtjfUbvHNfiH2vXGlrwNrEyI%3d&risl=&pid=ImgRaw&r=0',
       caption: 'Delicious Fruit',
       overlayText: 'Fruits and Vegtables',
-      additionalText: 'Welcome to our grocery Store!',
+      additionalText: 'Welcome to our Grocery Store!',
     },
     {
       imageUrl: 'https://www.eatthis.com/wp-content/uploads/sites/4/2019/12/costco-rotisserie-chicken-shelves.jpg?quality=82&strip=1',
