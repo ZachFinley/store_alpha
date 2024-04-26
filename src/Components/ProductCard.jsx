@@ -4,7 +4,7 @@ import { Card, Button } from 'react-bootstrap';
 //product 
 
 
-const ProductCard = ({ product, onAddToCart }) => {
+const ProductCard = ({ product }) => {
   return (
     <p>Display product information here</p>
   );
