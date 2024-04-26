@@ -1,4 +1,9 @@
 .text-custom {
-    color: rgb(29, 213, 226); 
-  }
-  
+  color: rgb(29, 213, 226);
+}
+
+.carousel-item img {
+  max-width: 100%;
+  max-height: 100vh; /* Adjust the value as needed */
+  object-fit: cover; /* Use "contain" to fit the image within the container */
+}
