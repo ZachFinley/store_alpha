@@ -1,12 +1,182 @@
-
 [
     {
         "id": 1,
         "name": "Apple",
         "price": 1.00,
         "description": "Gala apple.",
-        "category": "Cold Food",
-        "perPound": "true",
-        "image": "../images/apple.jpg"
+        "category": "Produce",
+        "perPound": true,
+        "image": ""
+    },
+    {
+        "id": 2,
+        "name": "Banana",
+        "price": 0.99,
+        "description": "",
+        "category": "Produce",
+        "perPound": true,
+        "image": ""
+    },
+    {
+        "id": 3,
+        "name": "Orange",
+        "price": 2.49,
+        "description": "",
+        "category": "Produce",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 4,
+        "name": "Grapes",
+        "price": 3.99,
+        "description": "",
+        "category": "Produce",
+        "perPound": true,
+        "image": ""
+    },
+    {
+        "id": 5,
+        "name": "Watermelon",
+        "price": 5.99,
+        "description": "",
+        "category": "Produce",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 6,
+        "name": "Strawberry",
+        "price": 2.29,
+        "description": "",
+        "category": "Produce",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 7,
+        "name": "Pineapple",
+        "price": 3.79,
+        "description": "",
+        "category": "Produce",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 8,
+        "name": "Carrots",
+        "price": 1.79,
+        "description": "",
+        "category": "Produce",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 9,
+        "name": "Potatoes",
+        "price": 1.49,
+        "description": "",
+        "category": "Produce",
+        "perPound": true,
+        "image": ""
+    },
+    {
+        "id": 10,
+        "name": "Corn",
+        "price": 0.50,
+        "description": "",
+        "category": "Produce",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 11,
+        "name": "Chicken Curry",
+        "price": 7.99,
+        "description": "",
+        "category": "Food",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 12,
+        "name": "Spicy Tacos",
+        "price": 5.49,
+        "description": "",
+        "category": "Food",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 13,
+        "name": "Chili Con Carne",
+        "price": 6.99,
+        "description": "",
+        "category": "Food",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 14,
+        "name": "Pepperoni Pizza",
+        "price": 8.99,
+        "description": "",
+        "category": "Food",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 15,
+        "name": "Hot Wings",
+        "price": 9.99,
+        "description": "",
+        "category": "Food",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 16,
+        "name": "Spaghetti Bolognese",
+        "price": 7.49,
+        "description": "",
+        "category": "Food",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 17,
+        "name": "Beef Stir-Fry",
+        "price": 6.79,
+        "description": "",
+        "category": "Food",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 18,
+        "name": "Vanilla Ice Cream",
+        "price": 3.49,
+        "description": "",
+        "category": "Food",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 19,
+        "name": "Chocolate Ice Cream",
+        "price": 3.49,
+        "description": "",
+        "category": "Food",
+        "perPound": false,
+        "image": ""
+    },
+    {
+        "id": 20,
+        "name": "Strawberry Ice Cream",
+        "price": 3.49,
+        "description": "",
+        "category": "Food",
+        "perPound": false,
+        "image": ""
     }
 ]

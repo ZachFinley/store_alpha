@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
+import FormGroup from 'react-bootstrap/FormGroup';
+import FormCheck from 'react-bootstrap/FormCheck';
 import '../styles/ProductPanel.css';
 
 const ProductPanel = ({products, onProductUpdate}) => {
@@ -51,33 +56,64 @@ const ProductPanel = ({products, onProductUpdate}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Edit Product</h3>
-      <select value={selectedProductId} onChange={handleSelectProduct}>
+  <Form onSubmit={handleSubmit}>
+    <h3>Edit Product</h3>
+    <Form.Group controlId="formProductSelect">
+      <Form.Label>Select Product</Form.Label>
+      <Form.Select value={selectedProductId} onChange={handleSelectProduct}>
         <option value="">Select a Product</option>
-        {products.map(product => (
+        {products.map((product) => (
           <option key={product.id} value={product.id}>
             {product.name}
           </option>
         ))}
-      </select>
-      <br />
-      <label>Name:<input type="text" name="name" value={product.name} onChange={handleChange} required/></label>
-      <br />
-      <label>Price:<input type="number" name="price" value={product.price} onChange={handleChange} required/></label>
-      <br />
-      <label>Description:<input type="text" name="description" value={product.description} onChange={handleChange} required/></label>
-      <br />
-      <label>Category:<input type="text" name="category" value={product.category} onChange={handleChange} required/></label>
-      <br />
-      <label>Per Pound:<input type="checkbox" name="perPound" checked={product.perPound} onChange={handleChange}/></label>
-      <br />
-      <label>Image URL:<input type="text" name="image" value={product.image} onChange={handleChange} required/></label>
-      <br />
-      <button type="submit">Save Product</button>
-      <button type="button" onClick={handleClearFields}>Clear Fields</button>
-    </form>
-  );
+      </Form.Select>
+    </Form.Group>
+    <br />
+    <FormGroup>
+      <Form.Label>Name</Form.Label>
+      <FormControl
+        type="text"
+        name="name"
+        value={product.name}
+        onChange={handleChange}
+        required
+      />
+    </FormGroup>
+    <FormGroup>
+      <Form.Label>Price</Form.Label>
+      <FormControl
+        type="number"
+        name="price"
+        value={product.price}
+        onChange={handleChange}
+        required
+      />
+    </FormGroup>
+    <FormGroup>
+      <Form.Label>Description</Form.Label>
+      <FormControl
+        type="text"
+        name="description"
+        value={product.description}
+        onChange={handleChange}
+        required
+      />
+    </FormGroup>
+    <FormGroup>
+      <Form.Label>Category</Form.Label>
+      <FormControl type="text"name="category" value={product.category} onChange={handleChange} required />
+    </FormGroup>
+    <FormGroup>
+      <FormCheck type="checkbox" name="perPound" label="Per Pound" checked={product.perPound} onChange={handleChange} />
+    </FormGroup>
+    <FormGroup>
+      <Form.Label>Image URL</Form.Label>
+      <FormControl type="text" name="image" value={product.image} onChange={handleChange} required />
+    </FormGroup>
+    <Button variant="primary" type="submit">Save Product</Button>
+    <Button variant="secondary" type="button" onClick={handleClearFields}>Clear Fields</Button>
+  </Form>
+);
 };
-
 export default ProductPanel;

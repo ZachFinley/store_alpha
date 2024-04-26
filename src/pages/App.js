@@ -11,13 +11,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import shoppersData from '../objects/shopper.json';
 import ordersData from '../objects/order.json';
 import productsData from '../objects/product.json';
+import Button from 'react-bootstrap/Button';
+import SignInModal from '../Components/modal.jsx';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [shoppers, setShoppers] = useState(shoppersData);
   const [orders, setOrders] = useState(ordersData);
   const [products, setProducts] = useState(productsData);
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   // This is the Function to add items to the cart =)
   const addToCart = (product) => {
     const updatedCartItems = [...cartItems, { ...product, quantity: 1 }];
@@ -66,6 +71,10 @@ function App() {
           </Routes>
         </div>
       </Router>
+      <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
+      <SignInModal></SignInModal>
     </div>
   );
 }
