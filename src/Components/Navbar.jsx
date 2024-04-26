@@ -1,12 +1,16 @@
 import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const NavbarComponent = () => {
+const NavbarComponent = (setShow) => {
+    
+    const handleShow = () => setShow(true);
     return (
+        <div>
         <Navbar bg="info" expand="lg" sticky="top">
             <Container>
+                
                 <LinkContainer to="/">
                     <Navbar.Brand>Grocery Store</Navbar.Brand>
                 </LinkContainer>
@@ -29,9 +33,14 @@ const NavbarComponent = () => {
                             <Nav.Link>Admin</Nav.Link>
                         </LinkContainer>
                     </Nav>
+                    <Button variant="primary" onClick={() => handleShow}>
+                        Sign In
+                    </Button>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+        
+      </div>
     );
 };
 

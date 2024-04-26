@@ -4,9 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/ProductPage.css';
 
 function ProductPage({products, addToCart }) {
-  const sampleProducts = [
-    
-];
 
   return (
     <div className="ProductPage">

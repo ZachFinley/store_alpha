@@ -12,7 +12,7 @@ import shoppersData from '../objects/shopper.json';
 import ordersData from '../objects/order.json';
 import productsData from '../objects/product.json';
 import Button from 'react-bootstrap/Button';
-import SignInModal from '../Components/modal.jsx';
+import SignInModal from '../Components/SignIn.jsx';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -21,8 +21,6 @@ function App() {
   const [products, setProducts] = useState(productsData);
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   // This is the Function to add items to the cart =)
   const addToCart = (product) => {
     const updatedCartItems = [...cartItems, { ...product, quantity: 1 }];
@@ -59,22 +57,21 @@ function App() {
   return (
     <div>
       <Router>
-        <NavbarComponent />
+        <NavbarComponent setShow={setShow}/>
         <div className="content">
           <Routes>
             <Route path="/" element={<HomePage products={products} />} index />
-            {/* Passes addToCart function to ProductPage */}
             <Route path="/products" element={<ProductPage products={products} addToCart={addToCart} />} />
             <Route path="/cart" element={<ShoppingPage cartItems={cartItems} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />} />
             <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} />} />
             <Route path="/admin" element={<AdminPage shoppers={shoppers} orders={orders} products={products} onProductUpdate={handleProductUpdate} onCustomerUpdate={handleCustomerUpdate} />} />
+            
           </Routes>
+          
         </div>
       </Router>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
-      <SignInModal></SignInModal>
+      
+      
     </div>
   );
 }
