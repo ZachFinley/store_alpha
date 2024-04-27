@@ -3,9 +3,8 @@ import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const NavbarComponent = (setShow) => {
+const NavbarComponent = ({ user, onSignIn, onSignUp, onSignOut }) => {
     
-    const handleShow = () => setShow(true);
     return (
         <div>
         <Navbar bg="info" expand="lg" sticky="top">
@@ -33,9 +32,15 @@ const NavbarComponent = (setShow) => {
                             <Nav.Link>Admin</Nav.Link>
                         </LinkContainer>
                     </Nav>
-                    <Button variant="primary" onClick={() => handleShow}>
-                        Sign In
-                    </Button>
+                    {!user ? (
+                        <>
+                        <Button variant="outline-light" onClick={onSignIn}>Sign In</Button>
+                        <Button variant="outline-light" onClick={onSignUp} className="ml-2">Sign Up</Button>
+                        </>
+                    ) : (
+                        <Button variant="outline-light" onClick={onSignOut}>Sign Out</Button>
+                    )}
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>
@@ -43,6 +48,4 @@ const NavbarComponent = (setShow) => {
       </div>
     );
 };
-
 export default NavbarComponent;
-
