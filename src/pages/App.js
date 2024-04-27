@@ -15,7 +15,7 @@ import SignIn from '../Components/SignIn.jsx';
 import SignUp from '../Components/SignUp.jsx';
 
 function App() {
-  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
+  const [cartItems, setCartItems] = useState([]);
   const [shoppers, setShoppers] = useState(JSON.parse(localStorage.getItem('shoppers')) || shoppersData);
   const [orders, setOrders] = useState(JSON.parse(localStorage.getItem('orders')) || ordersData);
   const [products, setProducts] = useState(JSON.parse(localStorage.getItem('products')) || productsData);
@@ -24,11 +24,9 @@ function App() {
   const [showSignUp, setShowSignUp] = useState(false);
   console.log(localStorage.getItem('shoppers'));
   useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
     localStorage.setItem('shoppers', JSON.stringify(shoppers));
     localStorage.setItem('orders', JSON.stringify(orders));
     localStorage.setItem('products', JSON.stringify(products));
-    localStorage.setItem('user', JSON.stringify(user));
     console.log("shoppers:", localStorage.getItem('shoppers'));
   }, [cartItems, shoppers, orders, products, user]);
   // This is the Function to add items to the cart =)
@@ -88,7 +86,18 @@ function App() {
       return newShoppers;
     });
   };
-  
+  const refreshCustomers = () => {
+    setShoppers(shoppersData);
+  };
+
+  const refreshProducts = () => {
+    setProducts(productsData);
+  };
+
+  const refreshOrders = () => {
+    setOrders(ordersData);
+  };
+
   const signIn = (userData) => {
     setUser(userData);
     setShowSignIn(false);
@@ -125,7 +134,7 @@ function App() {
             <Route path="/products" element={<ProductPage products={products} addToCart={addToCart} />} />
             <Route path="/cart" element={<ShoppingPage cartItems={cartItems} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />} />
             <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} user={user}/>} />
-            <Route path="/admin" element={<AdminPage shoppers={shoppers} orders={orders} products={products} onProductUpdate={handleProductUpdate} onCustomerUpdate={handleCustomerUpdate} />} />
+            <Route path="/admin" element={<AdminPage shoppers={shoppers} orders={orders} products={products} onProductUpdate={handleProductUpdate} onCustomerUpdate={handleCustomerUpdate} refreshCustomers={refreshCustomers} refreshOrders={refreshOrders} refreshProducts={refreshProducts}/>} />
             
           </Routes>
           

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import shoppers from '../objects/shopper.json';
+import Button from 'react-bootstrap/Button';
 
-const OrderPanel = ({orders}) => {
+const OrderPanel = ({orders, refreshOrders, shoppers}) => {
   const [selectedCustomerId, setSelectedCustomerId] = useState('');
-
+  const clearChanges = () => {
+    localStorage.removeItem('orders');
+    refreshOrders([]);
+};
   const handleCustomerSelection = (e) => {
     setSelectedCustomerId(e.target.value);
   };
@@ -21,6 +24,7 @@ const OrderPanel = ({orders}) => {
           </option>
         ))}
       </select>
+      <Button variant="danger" type="button" onClick={clearChanges}>Reset Orders</Button>
       {selectedCustomer && (
         <table className="table table-bordered table-striped table-responsive-md">
         <thead className="thead-dark">

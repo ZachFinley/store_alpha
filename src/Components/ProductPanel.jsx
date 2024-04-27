@@ -6,54 +6,65 @@ import FormGroup from 'react-bootstrap/FormGroup';
 import FormCheck from 'react-bootstrap/FormCheck';
 import '../styles/ProductPanel.css';
 
-const ProductPanel = ({products, onProductUpdate}) => {
+const ProductPanel = ({products, onProductUpdate, refreshProducts}) => {
   const [selectedProductId, setSelectedProductId] = useState('');
-  const [product, setProduct] = useState({
-    name: '',
-    price: '',
-    description: '',
-    category: '',
-    perPound: false,
-    image: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setProduct(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
-  };
-
-  const handleSelectProduct = (e) => {
-    const productId = e.target.value;
-    setSelectedProductId(productId);
-    const selectedProduct = products.find(p => p.id.toString() === productId);
-    if (selectedProduct) {
-      setProduct({
-        name: selectedProduct.name,
-        price: selectedProduct.price.toString(),
-        description: selectedProduct.description,
-        category: selectedProduct.category,
-        perPound: selectedProduct.perPound === "true", 
-        image: selectedProduct.image
-      });
-    }
-  };
-  const handleClearFields = () => {
-    setProduct({
-      name: '',
-      price: '',
-      description: '',
-      category: '',
-      perPound: '',
-      image: ''
+    const [product, setProduct] = useState({
+        id: '',
+        name: '',
+        price: '',
+        description: '',
+        category: '',
+        perPound: false,
+        image: ''
     });
+
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setProduct(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
+    };
+
+    const handleSelectProduct = (e) => {
+        const productId = e.target.value;
+        setSelectedProductId(productId);
+        const selectedProduct = products.find(p => p.id.toString() === productId);
+        if (selectedProduct) {
+            setProduct({
+                id: selectedProduct.id,
+                name: selectedProduct.name,
+                price: selectedProduct.price.toString(),
+                description: selectedProduct.description,
+                category: selectedProduct.category,
+                perPound: selectedProduct.perPound === "true",  // Assuming perPound is stored as a boolean in your state
+                image: selectedProduct.image
+            });
+        } else {
+            handleClearFields();
+        }
+    };
+
+    const handleClearFields = () => {
+        setProduct({
+            name: '',
+            price: '',
+            description: '',
+            category: '',
+            perPound: false,
+            image: ''
+        });
+    };
+    const clearChanges = () => {
+      localStorage.removeItem('products');
+      refreshProducts([]);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Submitting product:', product);
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (selectedProductId) {
+            onProductUpdate(product);
+        }
+    };
 
   return (
   <Form onSubmit={handleSubmit}>
@@ -91,6 +102,7 @@ const ProductPanel = ({products, onProductUpdate}) => {
     </FormGroup>
     <Button variant="primary" type="submit">Save Product</Button>
     <Button variant="secondary" type="button" onClick={handleClearFields}>Clear Fields</Button>
+    <Button variant="danger" type="button" onClick={clearChanges}>Reset Products</Button>
   </Form>
 );
 };

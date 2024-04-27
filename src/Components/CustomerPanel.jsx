@@ -5,7 +5,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import FormGroup from 'react-bootstrap/FormGroup';
 import '../styles/CustomerPanel.css';
 
-const CustomerPanel = ({shoppers, onCustomerUpdate}) => {
+const CustomerPanel = ({shoppers, onCustomerUpdate, refreshCustomers}) => {
   const [selectedShopperId, setSelectedShopperId] = useState('');
     const [customer, setCustomer] = useState({
         name: '',
@@ -66,7 +66,10 @@ const CustomerPanel = ({shoppers, onCustomerUpdate}) => {
             orderIDs: []
         });
     };
-
+    const clearChanges = () => {
+      localStorage.removeItem('shoppers');
+      refreshCustomers([]);
+  };
     const handleSubmit = (e) => {
         e.preventDefault();
         onCustomerUpdate({
@@ -117,6 +120,7 @@ const CustomerPanel = ({shoppers, onCustomerUpdate}) => {
     </FormGroup>
     <Button variant="primary" type="submit">Save Customer</Button>
     <Button variant="secondary" type="button" onClick={handleClearFields}>Clear Fields</Button>
+    <Button variant="danger" type="button" onClick={clearChanges}>Reset Customers</Button>
   </Form>
   );
 };
