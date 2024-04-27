@@ -12,7 +12,7 @@ function SignUp({ show, onHide, onSignUp }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     onSignUp({
-      customerID: 2,
+      customerID: -1,
       name,
       email,
       address: { street, city, state, zip },

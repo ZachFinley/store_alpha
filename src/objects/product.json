@@ -12,7 +12,7 @@
         "id": 2,
         "name": "Banana",
         "price": 0.99,
-        "description": "",
+        "description": "A bunch of bananas sold per pound",
         "category": "Produce",
         "perPound": true,
         "image": "https://th.bing.com/th/id/OIP.9uL9bdYXO1RW8GErkX9wBwHaE9?rs=1&pid=ImgDetMain"
@@ -30,7 +30,7 @@
         "id": 4,
         "name": "Grapes",
         "price": 3.99,
-        "description": "",
+        "description": "Bag of grapes sold per pound",
         "category": "Produce",
         "perPound": true,
         "image": "https://th.bing.com/th/id/OIP.F0lyTpYfnyrIxFMBcRsJtgHaIS?w=170&h=190&c=7&r=0&o=5&pid=1.7"
@@ -39,7 +39,7 @@
         "id": 5,
         "name": "Watermelon",
         "price": 5.99,
-        "description": "",
+        "description": "Large watermelon",
         "category": "Produce",
         "perPound": false,
         "image": "https://th.bing.com/th/id/OIP.48mjOUO0a_dnq8OHZ4g6WgHaIB?w=169&h=183&c=7&r=0&o=5&pid=1.7"
@@ -48,7 +48,7 @@
         "id": 6,
         "name": "Strawberry",
         "price": 2.29,
-        "description": "",
+        "description": "One package of strawberries",
         "category": "Produce",
         "perPound": false,
         "image": "https://th.bing.com/th?id=OIP.Wt3R7je2IIlag5Y_sb77KwEIDr&w=264&h=235&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
@@ -57,7 +57,7 @@
         "id": 7,
         "name": "Pineapple",
         "price": 3.79,
-        "description": "",
+        "description": "Single regular sized pineapple",
         "category": "Produce",
         "perPound": false,
         "image": "https://th.bing.com/th/id/OIP.MKP4hfpbJiRNH4gZqUhptQHaG8?w=198&h=186&c=7&r=0&o=5&pid=1.7"
@@ -66,7 +66,7 @@
         "id": 8,
         "name": "Carrots",
         "price": 1.79,
-        "description": "",
+        "description": "4 large carrots",
         "category": "Produce",
         "perPound": false,
         "image": "https://th.bing.com/th/id/OIP.tZAjPjXSMomDG4ZaaBFHJgHaEi?w=290&h=180&c=7&r=0&o=5&pid=1.7"

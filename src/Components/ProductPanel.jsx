@@ -72,33 +72,11 @@ const ProductPanel = ({products, onProductUpdate}) => {
     <br />
     <FormGroup>
       <Form.Label>Name</Form.Label>
-      <FormControl
-        type="text"
-        name="name"
-        value={product.name}
-        onChange={handleChange}
-        required
-      />
+      <FormControl type="text" name="name" value={product.name} onChange={handleChange} required/>
     </FormGroup>
     <FormGroup>
       <Form.Label>Price</Form.Label>
-      <FormControl
-        type="number"
-        name="price"
-        value={product.price}
-        onChange={handleChange}
-        required
-      />
-    </FormGroup>
-    <FormGroup>
-      <Form.Label>Description</Form.Label>
-      <FormControl
-        type="text"
-        name="description"
-        value={product.description}
-        onChange={handleChange}
-        required
-      />
+      <FormControl type="number" name="price" value={product.price} onChange={handleChange} required/>
     </FormGroup>
     <FormGroup>
       <Form.Label>Category</Form.Label>
