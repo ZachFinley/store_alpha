@@ -12,7 +12,7 @@ function ProductPage({ products, addToCart }) {
           {products.map((product) => (
             <div key={product.id} className="product-item">
               <h3>{product.name}</h3>
-              <p>${product.price}</p>
+              <p>${product.price.toFixed(2)}</p>
               <img src={product.image} alt={product.name} style={{ maxWidth: '100px', maxHeight: '100px' }} />
               <Button onClick={() => addToCart(product)}>Add to Cart</Button>
             </div>
