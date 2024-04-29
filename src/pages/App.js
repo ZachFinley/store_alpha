@@ -33,8 +33,17 @@ function App() {
   }, [cartItems, shoppers, orders, products, user]);
   // This is the Function to add items to the cart =)
   const addToCart = (product) => {
-    const updatedCartItems = [...cartItems, { ...product, quantity: 1 }];
-    setCartItems(updatedCartItems);
+    const existingItemIndex = cartItems.findIndex((item) => item.id === product.id);
+
+    if (existingItemIndex !== -1) {
+      //If item exist in cart, increment quantity
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingItemIndex].quantity += 1;
+      setCartItems(updatedCartItems);
+    } else {
+      const newItem = { ...product, quantity: 1 };
+      setCartItems([...cartItems, newItem]);
+    }
   };
 
   const handleUpdateCartQty = (productId, quantity) => {
