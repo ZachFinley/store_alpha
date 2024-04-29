@@ -35,9 +35,9 @@ const ProductPanel = ({products, onProductUpdate, refreshProducts}) => {
                 id: selectedProduct.id,
                 name: selectedProduct.name,
                 price: selectedProduct.price.toString(),
-                description: selectedProduct.description,
+                description: selectedProduct.description, //also not using this
                 category: selectedProduct.category,
-                perPound: selectedProduct.perPound === "true",  // Assuming perPound is stored as a boolean in your state
+                perPound: selectedProduct.perPound === "true", //will be added based on checkout page
                 image: selectedProduct.image
             });
         } else {
