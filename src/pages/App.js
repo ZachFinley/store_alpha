@@ -22,6 +22,8 @@ function App() {
   const [user, setUser] = useState(null);
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [navigationStarted, setNavigationStarted] = useState(false);
+
   console.log(localStorage.getItem('shoppers'));
   useEffect(() => {
     localStorage.setItem('shoppers', JSON.stringify(shoppers));
@@ -120,17 +122,19 @@ function App() {
     setUser(newCustomer);
     setShowSignUp(false);
   };
-
+  const handleNavigation = () => {
+    setNavigationStarted(true);
+  };
   const signOut = () => {
     setUser(null);
   };
   return (
     <div>
       <Router>
-        <NavbarComponent user={user} onSignIn={() => setShowSignIn(true)} onSignUp={() => setShowSignUp(true)} onSignOut={signOut}/>
+        <NavbarComponent user={user} onSignIn={() => setShowSignIn(true)} onSignUp={() => setShowSignUp(true)} onSignOut={signOut} onNavClick={handleNavigation}/>
         <div className="content">
           <Routes>
-            <Route path="/" element={<HomePage products={products} />} index />
+            <Route path="/" element={<HomePage products={products} />} />
             <Route path="/products" element={<ProductPage products={products} addToCart={addToCart} />} />
             <Route path="/cart" element={<ShoppingPage cartItems={cartItems} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />} />
             <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} user={user}/>} />
@@ -140,10 +144,7 @@ function App() {
           
         </div>
       </Router>
-      
-      <SignIn show={showSignIn} onHide={() => setShowSignIn(false)} onSignIn={signIn} />
-      <SignUp show={showSignUp} onHide={() => setShowSignUp(false)} onSignUp={signUp} />
-      
+      {!navigationStarted && <HomePage />}
     </div>
   );
 }

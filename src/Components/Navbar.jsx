@@ -3,7 +3,7 @@ import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const NavbarComponent = ({ user, onSignIn, onSignUp, onSignOut }) => {
+const NavbarComponent = ({ user, onSignIn, onSignUp, onSignOut, onNavClick }) => {
     
     return (
         <div>
@@ -17,19 +17,19 @@ const NavbarComponent = ({ user, onSignIn, onSignUp, onSignOut }) => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <LinkContainer to="/">
-                            <Nav.Link>Home</Nav.Link>
+                            <Nav.Link onClick={onNavClick}>Home</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/products">
-                            <Nav.Link>Products</Nav.Link>
+                            <Nav.Link onClick={onNavClick}>Products</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/cart">
                             <Nav.Link>Shopping Cart</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/checkout">
-                            <Nav.Link>Checkout</Nav.Link>
+                            <Nav.Link onClick={onNavClick}>Checkout</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/admin">
-                            <Nav.Link>Admin</Nav.Link>
+                            <Nav.Link onClick={onNavClick}>Admin</Nav.Link>
                         </LinkContainer>
                     </Nav>
                     {!user ? (
