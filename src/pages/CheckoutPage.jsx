@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import Invoice from '../Components/Invoice';
 import '../styles/CheckoutPage.css';
 
-const CheckoutPage = ({ cartItems, total, tax}) => {
+const CheckoutPage = ({ cartItems, total, tax, user}) => {
+  
   const [billingAddress, setBillingAddress] = useState({});
   const [shippingAddress, setShippingAddress] = useState({});
   const [paymentMethod, setPaymentMethod] = useState('');
   const [deliveryMethod, setDeliveryMethod] = useState('');
   const [showInvoice, setShowInvoice] = useState(false);
-
+  // useEffect(() => {
+  //   console.log(user);
+  //   if (user) {
+  //     setBillingAddress({
+  //       billingStreet: user.address.street,
+  //       billingCity: user.address.city,
+  //       billingState: user.address.state,
+  //       billingZip: user.address.zip
+  //     });
+  //   }
+  // }, [user]);
   const handleSubmit = (e) => {
     e.preventDefault();
     // show invoice
@@ -80,7 +91,7 @@ const CheckoutPage = ({ cartItems, total, tax}) => {
       <Form>
         <Form.Group>
           <Form.Label>Payment Method</Form.Label>
-          <Form.Control as="select" value={paymentMethod} onChange={handlePaymentMethodChange}>
+          <Form.Control as="select" value={paymentMethod} onChange={handlePaymentMethodChange} required>
             <option value="">Select Payment Method</option>
             <option value="PayPal">PayPal</option>
             <option value="Venmo">Venmo</option>
@@ -88,7 +99,7 @@ const CheckoutPage = ({ cartItems, total, tax}) => {
         </Form.Group>
         <Form.Group>
           <Form.Label>Delivery Method</Form.Label>
-          <Form.Control as="select" value={deliveryMethod} onChange={handleDeliveryMethodChange}>
+          <Form.Control as="select" value={deliveryMethod} onChange={handleDeliveryMethodChange} required>
             <option value="">Select Delivery Method</option>
             <option value="United States Postal Service">USPS</option>
             <option value="UPS ">UPS</option>
@@ -96,17 +107,17 @@ const CheckoutPage = ({ cartItems, total, tax}) => {
         </Form.Group>
         <Form.Group>
           <Form.Label>Billing Address</Form.Label>
-          <Form.Control type="text" placeholder="Street Address" name="billingStreet" onChange={handleBillingAddressChange} />
-          <Form.Control type="text" placeholder="City" name="billingCity" onChange={handleBillingAddressChange} />
-          <Form.Control type="text" placeholder="State" name="billingState" onChange={handleBillingAddressChange} />
-          <Form.Control type="text" placeholder="ZIP Code" name="billingZip" onChange={handleBillingAddressChange} />
+          <Form.Control type="text" placeholder="Street Address" name="billingStreet" onChange={handleBillingAddressChange} required/>
+          <Form.Control type="text" placeholder="City" name="billingCity" onChange={handleBillingAddressChange} required/>
+          <Form.Control type="text" placeholder="State" name="billingState" onChange={handleBillingAddressChange} required/>
+          <Form.Control type="text" placeholder="ZIP Code" name="billingZip" onChange={handleBillingAddressChange} required/>
         </Form.Group>
         <Form.Group>
           <Form.Label>Shipping Address</Form.Label>
-          <Form.Control type="text" placeholder="Street Address" name="shippingStreet" onChange={handleShippingAddressChange} />
-          <Form.Control type="text" placeholder="City" name="shippingCity" onChange={handleShippingAddressChange} />
-          <Form.Control type="text" placeholder="State" name="shippingState" onChange={handleShippingAddressChange} />
-          <Form.Control type="text" placeholder="ZIP Code" name="shippingZip" onChange={handleShippingAddressChange} />
+          <Form.Control type="text" placeholder="Street Address" name="shippingStreet" onChange={handleShippingAddressChange} required/>
+          <Form.Control type="text" placeholder="City" name="shippingCity" onChange={handleShippingAddressChange} required/>
+          <Form.Control type="text" placeholder="State" name="shippingState" onChange={handleShippingAddressChange} required/>
+          <Form.Control type="text" placeholder="ZIP Code" name="shippingZip" onChange={handleShippingAddressChange} required/>
         </Form.Group>
         <Form.Group>
         <Form.Label>Discount Code</Form.Label>

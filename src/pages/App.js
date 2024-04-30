@@ -94,6 +94,7 @@ function App() {
       }
       localStorage.setItem('shoppers', JSON.stringify(newShoppers));
       console.log(newShoppers);
+      
       return newShoppers;
     });
   };
@@ -111,24 +112,15 @@ function App() {
 
   const signIn = (userData) => {
     setUser(userData);
+    console.log(user);
     setShowSignIn(false);
   };
 
   const signUp = (userData) => {
-    const newCustomer = {
-        customerID: shoppers.length + 1,
-        name: userData.name,
-        email: userData.email,
-        address: {
-            street: userData.street,
-            city: userData.city,
-            state: userData.state,
-            zip: userData.zip
-        },
-        orderIDs: []
-    };
-    handleCustomerUpdate(newCustomer);
-    setUser(newCustomer);
+    console.log({...userData, customerID: (shoppers.length + 1).toString()});
+    handleCustomerUpdate({...userData, customerID: (shoppers.length + 1).toString()});
+    setUser({...userData, customerID: (shoppers.length + 1).toString()});
+    console.log(user);
     setShowSignUp(false);
   };
   const handleNavigation = () => {
@@ -153,6 +145,8 @@ function App() {
           
         </div>
       </Router>
+      <SignIn show={showSignIn} onHide={() => setShowSignIn(false)} onSignIn={signIn} />
+      <SignUp show={showSignUp} onHide={() => setShowSignUp(false)} onSignUp={signUp} />
       {!navigationStarted && <HomePage />}
     </div>
   );
